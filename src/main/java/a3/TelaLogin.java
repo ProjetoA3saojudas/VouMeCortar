@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package a3;
 
 import java.sql.ResultSet;
@@ -20,6 +15,8 @@ public class TelaLogin extends javax.swing.JFrame {
      */
     public TelaLogin() {
         initComponents();
+         buttonGroup2.add(RBC);
+         buttonGroup2.add(RBA);
 //         this.pack();
 //        this.setLocationRelativeTo(null);
 //        this.setVisible(true);
@@ -35,12 +32,18 @@ public class TelaLogin extends javax.swing.JFrame {
     private void initComponents() {
 
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtEmail = new javax.swing.JTextField();
         txtSenha = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        RBC = new javax.swing.JRadioButton();
+        RBA = new javax.swing.JRadioButton();
+        jLabel5 = new javax.swing.JLabel();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -59,8 +62,8 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 2, 14)); // NOI18N
-        jButton1.setText("Logar  :)");
+        jButton1.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        jButton1.setText("Logar ");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -71,40 +74,100 @@ public class TelaLogin extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Login");
 
+        jButton2.setFont(new java.awt.Font("Segoe Print", 1, 10)); // NOI18N
+        jButton2.setText("Cadrastre-se");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        jLabel4.setText("Não tem uma conta?");
+
+        RBC.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        RBC.setText("Cliente");
+        RBC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RBCActionPerformed(evt);
+            }
+        });
+
+        RBA.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        RBA.setText("Administrador");
+        RBA.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RBAActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        jLabel5.setText("Tipo de login:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(114, 114, 114)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButton1)
-                        .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
-                        .addComponent(txtSenha)))
-                .addContainerGap(130, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(183, 183, 183)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(81, 81, 81)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(18, 18, 18)
+                                .addComponent(RBC)
+                                .addGap(18, 18, 18)
+                                .addComponent(RBA))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addComponent(jLabel4)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2)
+                                .addGap(36, 36, 36))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(180, 180, 180)
+                        .addComponent(jButton1)))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 14, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(73, 73, 73)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 6, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RBC)
+                    .addComponent(RBA)
+                    .addComponent(jLabel5))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jButton2))
+                .addGap(30, 30, 30)
                 .addComponent(jButton1)
-                .addGap(60, 60, 60))
+                .addGap(42, 42, 42))
         );
 
         pack();
@@ -113,22 +176,51 @@ public class TelaLogin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         try {
-            String email, senha;
+            String email, senha, tipousuario;
 
             email = txtEmail.getText();
             senha = txtSenha.getText();
+            tipousuario = "";
+          
+          if(RBC.isSelected()){
+              tipousuario = "Cliente";
+          }
+          
+          if(RBA.isSelected()){
+              tipousuario = "Admin";
+          }
 
             UsuarioDTO objusuariodto = new UsuarioDTO();
             objusuariodto.setEmail(email);
             objusuariodto.setSenha(senha);
+            objusuariodto.setTipousuario(tipousuario);
 
             UsuarioDAO objusuariodao = new UsuarioDAO();
             ResultSet rs = objusuariodao.autenticacaoUsuario(objusuariodto);
+            
+              if(RBC.isSelected()){
+              tipousuario = "Cliente";
+              //homeC hm = new homeC();
+              //hm.setVisible(true);
+              dispose();
+             
+          }
+          
+          if(RBA.isSelected()){
+              tipousuario = "Admin";
+              //TelaCadastroProduto TCP = new TelaCadastroProduto();
+              //TCP.setVisible(true);
+              dispose();
+          }else{
+              JOptionPane.showMessageDialog(null, "Usuario ou senha inválida");
+          }
 
         if (rs.next()) {
             //chamar tela que eu quero abrir
-            telaPrincipal objtelaPrincipal = new telaPrincipal();
-            objtelaPrincipal.setVisible(true);
+           /* home hm = new home();
+              hm.setVisible(true);
+              dispose();
+            */
 
             dispose();
 
@@ -146,6 +238,20 @@ public class TelaLogin extends javax.swing.JFrame {
     private void txtEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEmailActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEmailActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       TelaCadastro TC = new TelaCadastro();
+       TC.setVisible(true);
+       dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void RBCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBCActionPerformed
+        
+    }//GEN-LAST:event_RBCActionPerformed
+
+    private void RBAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBAActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RBAActionPerformed
 
     /**
      * @param args the command line arguments
@@ -183,11 +289,17 @@ public class TelaLogin extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton RBA;
+    private javax.swing.JRadioButton RBC;
+    private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtSenha;
     // End of variables declaration//GEN-END:variables

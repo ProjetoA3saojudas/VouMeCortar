@@ -3,7 +3,7 @@ package a3;
 
 public class UsuarioDTO {
     private int id;
-    private String email, senha;
+    private String email, senha, tipousuario;
 
     public int getId() {
         return id;
@@ -12,6 +12,11 @@ public class UsuarioDTO {
     public void setId(int id) {
         this.id = id;
     }
+
+    public String getTipousuario() {
+        return tipousuario;
+    }
+    
 
     public String getEmail() {
         return email;
@@ -28,6 +33,11 @@ public class UsuarioDTO {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    public void setTipousuario(String tipousuario) {
+        this.tipousuario = tipousuario;
+    }
+    
      
     
 }
