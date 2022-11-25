@@ -2,17 +2,21 @@ package a3;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DAOcadastroproduto {
+    // Abrir uma conexão
+    ConnectionFactory cf = new ConnectionFactory();
+    
     public void adicionar(String produtoP, double precoP, String descricaoP){
-        DTOcadasproduto cpd = new DTOcadasproduto(produtoP, precoP, descricaoP);
+        DTOproduto cpd = new DTOproduto(produtoP, precoP, descricaoP);
         
         //1: Definir o comando SQL
         String sql = "INSERT INTO produtos ( produtoP, precoP, descricaoP) VALUES (?, ?, ?)";
 
-        //2: Abrir uma conexão
-        ConnectionFactory cf = new ConnectionFactory();
         try (Connection c = cf.obtemConexao()){
             //3: Pré compila o comando
             PreparedStatement ps = c.prepareStatement(sql);
@@ -29,4 +33,20 @@ public class DAOcadastroproduto {
             e.printStackTrace();
         }
     }
+    
+    public List<DTOproduto> produtoListar() throws SQLException{
+        
+        List<DTOproduto> produtos = new ArrayList<>();
+        Connection c = cf.obtemConexao();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        while(rs.next()){
+            DTOproduto  = new DTOproduto();
+        }
+         
+        
+        return produtos;
+    }
+    
 }

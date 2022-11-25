@@ -2,12 +2,12 @@
 package a3;
 
 
-public class DTOcadasproduto {
+public class DTOproduto {
     String produtoP;
     Double precoP;
     String descricaoP;
 
-    public DTOcadasproduto(String produtoP, Double precoP, String descricaoP) {
+    public DTOproduto(String produtoP, Double precoP, String descricaoP) {
         this.produtoP = produtoP;
         this.precoP = precoP;
         this.descricaoP = descricaoP;

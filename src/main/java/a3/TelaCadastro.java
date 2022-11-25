@@ -14,6 +14,8 @@ public class TelaCadastro extends javax.swing.JFrame {
      
      public TelaCadastro(){
          initComponents();
+          buttonGroup2.add(RBC);
+         buttonGroup2.add(RBA);
         this.pack();
         this.setLocationRelativeTo(null);
         this.setVisible(true);
@@ -34,6 +36,7 @@ public class TelaCadastro extends javax.swing.JFrame {
         jTextField3 = new javax.swing.JTextField();
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
+        buttonGroup3 = new javax.swing.ButtonGroup();
         TextNome = new javax.swing.JTextField();
         TextEmail = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
@@ -42,6 +45,9 @@ public class TelaCadastro extends javax.swing.JFrame {
         BCadastrar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         TextSenha = new javax.swing.JTextField();
+        RBC = new javax.swing.JRadioButton();
+        RBA = new javax.swing.JRadioButton();
+        jLabel4 = new javax.swing.JLabel();
 
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,6 +95,12 @@ public class TelaCadastro extends javax.swing.JFrame {
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel5.setText("Cadastre-se");
 
+        RBC.setText("Cliente");
+
+        RBA.setText("Administrador");
+
+        jLabel4.setText("Tipo Usuario:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,7 +118,7 @@ public class TelaCadastro extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel3))
-                                .addGap(25, 25, 25))
+                                .addGap(48, 48, 48))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -116,9 +128,16 @@ public class TelaCadastro extends javax.swing.JFrame {
                             .addComponent(TextEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
                             .addComponent(TextSenha)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(193, 193, 193)
-                        .addComponent(BCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(118, 118, 118)
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(RBC)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(RBA))
+                            .addComponent(BCadastrar, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(151, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,7 +156,12 @@ public class TelaCadastro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(TextSenha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RBC)
+                    .addComponent(RBA)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(BCadastrar)
                 .addGap(35, 35, 35))
         );
@@ -163,10 +187,23 @@ public class TelaCadastro extends javax.swing.JFrame {
         String nome;
         String email;
         String senha;
-        
+        String tipousuario;
+
           nome = TextNome.getText();
           email = TextEmail.getText();
           senha = TextSenha.getText();
+//          senha = TextSenha.getPassword().toString();
+          tipousuario = "";
+
+          if(RBC.isSelected()){
+              tipousuario = "Cliente";
+          }
+
+          if(RBA.isSelected()){
+              tipousuario = "Admin";
+          }
+          DAOCadastrousuario dao = new DAOCadastrousuario();
+          dao.adicionar(nome, email, senha, tipousuario);
         this.dispose();
           
     }//GEN-LAST:event_BCadastrarActionPerformed
@@ -208,14 +245,18 @@ public class TelaCadastro extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BCadastrar;
+    private javax.swing.JRadioButton RBA;
+    private javax.swing.JRadioButton RBC;
     private javax.swing.JTextField TextEmail;
     private javax.swing.JTextField TextNome;
     private javax.swing.JTextField TextSenha;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.ButtonGroup buttonGroup3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
