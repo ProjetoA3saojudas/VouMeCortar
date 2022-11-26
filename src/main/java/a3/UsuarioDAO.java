@@ -25,7 +25,8 @@ public class UsuarioDAO {
              return rs; 
             
         } catch (SQLException erro) {
-             JOptionPane.showMessageDialog(null, "UsuarioDAO: " + erro);
+             erro.printStackTrace();
+             //NÃO SEI PQ ESTA PRINT STACK TRACE AQUI, NO VIDEO É SQLERRO
              return null;
         }
                  

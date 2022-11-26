@@ -1,16 +1,23 @@
-
 package a3;
-
 
 public class DTOproduto {
     String produtoP;
     Double precoP;
     String descricaoP;
+    int idP;
 
     public DTOproduto(String produtoP, Double precoP, String descricaoP) {
         this.produtoP = produtoP;
         this.precoP = precoP;
         this.descricaoP = descricaoP;
+    }
+    
+    public int getIdP() {
+        return idP;
+    }
+
+    public void setIdP(int idP) {
+        this.idP = idP;
     }
 
     public String getProdutoP() {

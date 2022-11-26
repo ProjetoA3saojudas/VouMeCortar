@@ -10,7 +10,7 @@ import java.util.List;
 public class DAOcadastroproduto {
     // Abrir uma conexão
     ConnectionFactory cf = new ConnectionFactory();
-    
+        
     public void adicionar(String produtoP, double precoP, String descricaoP){
         DTOproduto cpd = new DTOproduto(produtoP, precoP, descricaoP);
         
@@ -29,24 +29,24 @@ public class DAOcadastroproduto {
             ps.execute();
         }
 
-        catch (Exception e){
-            e.printStackTrace();
+        catch (SQLException erro){
+            erro.printStackTrace();
         }
     }
     
-    public List<DTOproduto> produtoListar() throws SQLException{
-        
-        List<DTOproduto> produtos = new ArrayList<>();
-        Connection c = cf.obtemConexao();
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        
-        while(rs.next()){
-            DTOproduto  = new DTOproduto();
-        }
-         
-        
-        return produtos;
-    }
-    
+//    public List<DTOproduto> produtoListar() throws SQLException{
+//        
+//        List<DTOproduto> produtos = new ArrayList<>();
+//        Connection c = cf.obtemConexao();
+//        PreparedStatement ps = null;
+//        ResultSet rs = null;
+//        
+//        while(rs.next()){
+//            DTOproduto  = new DTOproduto();
+//        }
+//         
+//        
+//        return produtos;
+//    }
+//    
 }
