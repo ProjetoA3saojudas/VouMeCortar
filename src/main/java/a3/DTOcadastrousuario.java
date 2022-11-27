@@ -1,12 +1,12 @@
 package a3;
 
-public class cadastrousuario {
+public class DTOcadastrousuario {
     private String nome;
     private String email;
     private String senha;
     private String tipousuario;
 
-    public cadastrousuario(String nome, String email, String senha, String tipousuario) {
+    public DTOcadastrousuario(String nome, String email, String senha, String tipousuario) {
         this.nome = nome;
         this.email = email;
         this.senha = senha;

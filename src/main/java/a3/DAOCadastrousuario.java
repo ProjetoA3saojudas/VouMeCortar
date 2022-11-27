@@ -1,11 +1,12 @@
 package a3;
 
+import a3.connection.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 
 public class DAOCadastrousuario {
     public void adicionar(String nome, String email, String senha, String tipousuario){
-        cadastrousuario cu = new cadastrousuario(nome, email, senha, tipousuario);
+        DTOcadastrousuario cu = new DTOcadastrousuario(nome, email, senha, tipousuario);
         
         //1: Definir o comando SQL
         String sql = "INSERT INTO cadastrousuario(nome, email, senha,  tipousuario) VALUES (?, ?, ?, ?)";

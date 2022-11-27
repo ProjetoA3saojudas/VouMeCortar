@@ -4,6 +4,10 @@
  */
 package a3;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Maria
@@ -29,19 +33,32 @@ public class Telatipousuario extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         RBC = new javax.swing.JRadioButton();
         RBA = new javax.swing.JRadioButton();
         BEntrar = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Tipo Usuario");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
+        jLabel1.setFont(new java.awt.Font("Segoe Print", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Tipo Usuario:");
+
+        RBC.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        RBC.setForeground(new java.awt.Color(0, 0, 0));
         RBC.setText("Cliente");
 
+        RBA.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        RBA.setForeground(new java.awt.Color(0, 0, 0));
         RBA.setText("Administrador");
 
+        BEntrar.setBackground(new java.awt.Color(255, 255, 255));
+        BEntrar.setFont(new java.awt.Font("Segoe Print", 1, 12)); // NOI18N
+        BEntrar.setForeground(new java.awt.Color(0, 0, 0));
         BEntrar.setText("Entrar");
         BEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -49,36 +66,55 @@ public class Telatipousuario extends javax.swing.JFrame {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logonome.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(86, 86, 86)
+                        .addComponent(RBC)
+                        .addGap(40, 40, 40)
+                        .addComponent(RBA))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(110, 110, 110)
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(66, 66, 66)
+                        .addComponent(jLabel2))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(148, 148, 148)
+                        .addComponent(BEntrar)))
+                .addContainerGap(68, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(55, 55, 55)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(RBC)
+                    .addComponent(RBA))
+                .addGap(61, 61, 61)
+                .addComponent(BEntrar)
+                .addContainerGap(64, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(RBC)
-                        .addGap(56, 56, 56)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(BEntrar)
-                            .addComponent(RBA))))
-                .addContainerGap(151, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jLabel1)
-                .addGap(93, 93, 93)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(RBC)
-                    .addComponent(RBA))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
-                .addComponent(BEntrar)
-                .addGap(49, 49, 49))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -90,19 +126,26 @@ public class Telatipousuario extends javax.swing.JFrame {
         
          tipousuario = "";
 
-          if(RBC.isSelected()){
-              tipousuario = "Cliente";
-              homeC hc = new homeC();
-              hc.setVisible(true);
-              dispose();
-          }
+          
+           DTOusuario objusuarioDTO = new DTOusuario();
+            objusuarioDTO.setTipousuario(tipousuario);
 
-          if(RBA.isSelected()){
+            DAOusuario objusuariodao = new DAOusuario();
+            ResultSet rs = objusuariodao.autenticacaoUsuario(objusuarioDTO);
+            
+            if(RBA.isSelected()){
               tipousuario = "Admin";
               TelaCadastroProduto tcp = new TelaCadastroProduto();
               tcp.setVisible(true);
               dispose();
-          }
+          } 
+            
+            if(RBC.isSelected()){
+              tipousuario = "Cliente";
+              TelaCarrinho hc = new TelaCarrinho();
+              hc.setVisible(true);
+              dispose();
+          } 
     }//GEN-LAST:event_BEntrarActionPerformed
 
     /**
@@ -146,5 +189,7 @@ public class Telatipousuario extends javax.swing.JFrame {
     private javax.swing.JRadioButton RBC;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

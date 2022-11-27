@@ -1,5 +1,6 @@
 package a3;
 
+import a3.connection.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -8,11 +9,11 @@ import javax.swing.JOptionPane;
 //import pacote_a3.ConnectionFactory;
 //import pacote_a3.UsuarioDTO;
 
-public class UsuarioDAO {
+public class DAOusuario {
     
     Connection c;
    
-        public ResultSet autenticacaoUsuario(UsuarioDTO objusuariodto){
+        public ResultSet autenticacaoUsuario(DTOusuario objusuariodto){
          c = new ConnectionFactory().obtemConexao();
          
          try {

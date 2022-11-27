@@ -1,7 +1,7 @@
 package a3;
 
 
-public class UsuarioDTO {
+public class DTOusuario {
     private int id;
     private String email, senha, tipousuario;
 

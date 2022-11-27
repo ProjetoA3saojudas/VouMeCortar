@@ -1,10 +1,10 @@
 package a3;
 
 public class DTOproduto {
+    int idP;
     String produtoP;
     Double precoP;
     String descricaoP;
-    int idP;
 
     public DTOproduto(String produtoP, Double precoP, String descricaoP) {
         this.produtoP = produtoP;

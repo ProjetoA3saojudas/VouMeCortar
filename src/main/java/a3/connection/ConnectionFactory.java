@@ -1,4 +1,4 @@
-package a3;
+package a3.connection;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 
 public class ConnectionFactory {
     private String usuario = "root";
-    private String senha = "Lukasenhu1234567890_";
+    private String senha = "PM060104@";
     private String host = "localhost";
     private String porta = "3306";
     private String bd = "bancoA3";
